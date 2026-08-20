@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { services } from "@/data/services";
 import { serviceIcon } from "./icons";
-import logoAsset from "@/assets/kite-logo.jpeg.asset.json";
+import kiteLogo from "@/assets/kite logo.jpeg";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -12,8 +12,11 @@ export function Header() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
+
     onScroll();
+
     window.addEventListener("scroll", onScroll, { passive: true });
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -24,24 +27,31 @@ export function Header() {
       }`}
     >
       <div className="container-page flex h-16 items-center justify-between gap-4 lg:h-20">
-        <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+        {/* LOGO + COMPANY NAME */}
+        <Link
+          to="/"
+          className="flex items-center gap-4"
+          onClick={() => setOpen(false)}
+        >
           <img
-            src={logoAsset.url}
+            src={kiteLogo}
             alt="Kite International Services logo"
-            width={40}
-            height={40}
-            className="size-10 rounded-xl object-contain"
+            width={64}
+            height={64}
+            className="size-14 rounded-xl object-contain sm:size-16"
           />
+
           <span className="hidden leading-tight sm:block">
-            <span className="block font-display text-base font-semibold text-foreground">
+            <span className="block font-display text-xl font-bold text-foreground sm:text-2xl">
               Kite International
             </span>
-            <span className="block text-xs text-muted-foreground">Student Services</span>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex">
+        {/* DESKTOP NAVIGATION */}
+        <nav className="hidden items-center gap-4 lg:flex">
           <NavLink to="/">Home</NavLink>
+
           <div
             className="relative"
             onMouseEnter={() => setServicesOpen(true)}
@@ -51,18 +61,23 @@ export function Header() {
               type="button"
               aria-expanded={servicesOpen}
               onClick={() => setServicesOpen((v) => !v)}
-              className="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-foreground"
+              className="flex items-center gap-1.5 rounded-lg px-4 py-2.5 text-base font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-foreground"
             >
               Services
+
               <ChevronDown
-                className={`size-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`}
+                className={`size-4 transition-transform ${
+                  servicesOpen ? "rotate-180" : ""
+                }`}
               />
             </button>
+
             {servicesOpen && (
               <div className="absolute left-1/2 top-full w-[36rem] -translate-x-1/2 pt-3">
                 <div className="grid grid-cols-2 gap-1 rounded-2xl border border-border bg-popover p-3 shadow-lift">
                   {services.map((s) => {
                     const Icon = serviceIcon(s.icon);
+
                     return (
                       <Link
                         key={s.slug}
@@ -74,10 +89,12 @@ export function Header() {
                         <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-brand-soft text-brand">
                           <Icon className="size-4" />
                         </span>
+
                         <span>
                           <span className="block text-sm font-semibold text-foreground">
                             {s.name}
                           </span>
+
                           <span className="block text-xs leading-snug text-muted-foreground">
                             {s.short}
                           </span>
@@ -89,9 +106,9 @@ export function Header() {
               </div>
             )}
           </div>
-          <NavLink to="/dashboard">Dashboard</NavLink>
         </nav>
 
+        {/* GET STARTED + MOBILE MENU */}
         <div className="flex items-center gap-2">
           <Link
             to="/services/$slug"
@@ -101,26 +118,34 @@ export function Header() {
           >
             Get Started
           </Link>
+
           <button
             type="button"
             aria-label="Toggle menu"
             onClick={() => setOpen((v) => !v)}
             className="grid size-10 place-items-center rounded-lg border border-border text-foreground transition-colors hover:bg-accent lg:hidden"
           >
-            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+            {open ? (
+              <X className="size-5" />
+            ) : (
+              <Menu className="size-5" />
+            )}
           </button>
         </div>
       </div>
 
+      {/* MOBILE MENU */}
       {open && (
         <div className="border-t border-border bg-background lg:hidden">
           <div className="container-page space-y-1 py-4">
             <MobileLink to="/" onClick={() => setOpen(false)}>
               Home
             </MobileLink>
+
             <p className="px-3 pt-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               Services
             </p>
+
             {services.map((s) => (
               <Link
                 key={s.slug}
@@ -128,14 +153,14 @@ export function Header() {
                 params={{ slug: s.slug }}
                 onClick={() => setOpen(false)}
                 className="block rounded-lg px-3 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent"
-                activeProps={{ className: "bg-accent text-foreground" }}
+                activeProps={{
+                  className: "bg-accent text-foreground",
+                }}
               >
                 {s.name}
               </Link>
             ))}
-            <MobileLink to="/dashboard" onClick={() => setOpen(false)}>
-              Dashboard
-            </MobileLink>
+
             <Link
               to="/services/$slug"
               params={{ slug: "education-loan" }}
@@ -152,18 +177,34 @@ export function Header() {
   );
 }
 
-function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
+/* =========================================================
+   DESKTOP NAV LINK
+========================================================= */
+
+function NavLink({
+  to,
+  children,
+}: {
+  to: string;
+  children: React.ReactNode;
+}) {
   return (
     <Link
       to={to}
       activeOptions={{ exact: to === "/" }}
-      className="rounded-lg px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-foreground"
-      activeProps={{ className: "bg-accent text-foreground" }}
+      className="rounded-lg px-4 py-2.5 text-base font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-foreground"
+      activeProps={{
+        className: "bg-accent text-foreground",
+      }}
     >
       {children}
     </Link>
   );
 }
+
+/* =========================================================
+   MOBILE LINK
+========================================================= */
 
 function MobileLink({
   to,
@@ -180,7 +221,9 @@ function MobileLink({
       onClick={onClick}
       activeOptions={{ exact: to === "/" }}
       className="block rounded-lg px-3 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent"
-      activeProps={{ className: "bg-accent text-foreground" }}
+      activeProps={{
+        className: "bg-accent text-foreground",
+      }}
     >
       {children}
     </Link>
