@@ -14,6 +14,7 @@ import accommodationServiceImage from "@/assets/accommodation.png";
 import healthInsuranceImage from "@/assets/health-insurance.png";
 import studentIdImage from "@/assets/student-id.png";
 import simCardImage from "@/assets/sim-card.png";
+import flightTicketImage from "@/assets/66e04db6fb564407d5b4b298Flight-Tickets-Rule.webp";
 
 import { services } from "@/data/services";
 import { serviceIcon } from "@/components/site/icons";
@@ -50,6 +51,7 @@ const serviceImages: Record<string, string> = {
   "health-insurance": healthInsuranceImage,
   "student-id-card": studentIdImage,
   "sim-card": simCardImage,
+  "flight-ticket-booking": flightTicketImage,
 };
 
 /* =========================================================
@@ -567,7 +569,7 @@ function Index() {
 
               <Link
                 to="/enquiry"
-                className="mt-9 inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-sm font-semibold text-brand-foreground transition-all hover:-translate-y-0.5 hover:shadow-lift"
+                className="mt-9 inline-flex items-center ..."
               >
                 Enquire Now
                 <ArrowRight className="size-4" />

@@ -1,3 +1,4 @@
+
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
@@ -111,9 +112,7 @@ export function Header() {
         {/* GET STARTED + MOBILE MENU */}
         <div className="flex items-center gap-2">
           <Link
-            to="/services/$slug"
-            params={{ slug: "education-loan" }}
-            hash="enquiry"
+            to="/enquiry"
             className="hidden rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-brand-foreground shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift sm:inline-flex"
           >
             Get Started
@@ -162,9 +161,7 @@ export function Header() {
             ))}
 
             <Link
-              to="/services/$slug"
-              params={{ slug: "education-loan" }}
-              hash="enquiry"
+              to="/enquiry"
               onClick={() => setOpen(false)}
               className="mt-3 block rounded-full bg-brand px-5 py-3 text-center text-sm font-semibold text-brand-foreground"
             >

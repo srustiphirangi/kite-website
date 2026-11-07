@@ -8,6 +8,7 @@ import accommodationServiceImage from "@/assets/accommodation.png";
 import healthInsuranceImage from "@/assets/health-insurance.png";
 import studentIdImage from "@/assets/student-id.png";
 import simCardImage from "@/assets/sim-card.png";
+import flightTicketImage from "@/assets/66e04db6fb564407d5b4b298Flight-Tickets-Rule.webp";
 
 import { getService, services, type Service } from "@/data/services";
 import { serviceIcon } from "@/components/site/icons";
@@ -27,6 +28,7 @@ const serviceImages: Record<string, string> = {
   "health-insurance": healthInsuranceImage,
   "student-id-card": studentIdImage,
   "sim-card": simCardImage,
+  "flight-ticket-booking": flightTicketImage,
 };
 
 export const Route = createFileRoute("/services/$slug")({

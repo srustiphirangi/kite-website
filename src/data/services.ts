@@ -204,6 +204,19 @@ export const services: Service[] = [
           "Dedicated Relationship Manager",
         ],
       },
+      {
+        name: "HDFC",
+        desc: "Education loan options for students pursuing higher studies in India and abroad, subject to eligibility.",
+        bestFor: "Students exploring education financing from a major Indian bank",
+        interestRate: "As per HDFC's prevailing education loan terms",
+        countries: ["India", "International destinations"],
+        features: [
+          "Study-abroad education financing",
+          "Loan options based on eligibility",
+          "Repayment terms based on loan offer",
+          "Support for education-related expenses",
+        ],
+      },
     ],
   },
   {
@@ -281,6 +294,18 @@ export const services: Service[] = [
           "Same-day service",
         ],
       },
+      {
+        name: "Zolve",
+        desc: "Digital financial services to help students manage money across India and international destinations.",
+        bestFor: "Students looking for digital-first cross-border money services",
+        countries: ["India", "United States", "International destinations"],
+        features: [
+          "International money transfer options",
+          "Digital account access",
+          "Cross-border money management",
+          "Student-focused financial services",
+        ],
+      },
     ],
   },
   {
@@ -335,6 +360,18 @@ export const services: Service[] = [
           "Competitive rates",
           "Branch pickup",
           "Same-day service",
+        ],
+      },
+      {
+        name: "Niyo Forex",
+        desc: "Digital forex and international money services for students preparing to study abroad.",
+        bestFor: "Students managing travel and money needs for overseas study",
+        countries: ["India", "International destinations"],
+        features: [
+          "Forex services for international travel",
+          "International money service options",
+          "Digital service access",
+          "Support for overseas student journeys",
         ],
       },
     ],
@@ -634,6 +671,44 @@ export const services: Service[] = [
         desc: "Affordable international calling and data plans",
         countries: ["United Kingdom", "Australia", "Germany", "Netherlands", "Ireland"],
         features: ["Student discounts", "Flexible plans", "International calls"],
+      },
+    ],
+  },
+  {
+    slug: "flight-ticket-booking",
+    name: "Flight Ticket Booking",
+    icon: "Plane",
+    short: "Book flights for your study abroad journey with trusted travel partners",
+    title: "Flight Ticket Booking",
+    tagline:
+      "Plan your journey to your study destination with flight booking assistance from our travel partners.",
+    partnerCta: "Contact Partner",
+    benefits: [
+      "Explore flight options for your destination",
+      "Get support with booking your student travel",
+      "Compare itineraries to suit your plans",
+      "Plan your travel dates with guidance",
+    ],
+    partners: [
+      {
+        name: "Hotspot",
+        desc: "Flight ticket booking assistance for students travelling to their study destination.",
+        countries: ["India", "International destinations"],
+        features: [
+          "Flight booking assistance",
+          "Domestic and international travel options",
+          "Itinerary guidance",
+        ],
+      },
+      {
+        name: "Wizzmoni",
+        desc: "Travel booking support to help students plan flights for their overseas studies.",
+        countries: ["India", "International destinations"],
+        features: [
+          "Student travel support",
+          "Flight itinerary options",
+          "Booking guidance",
+        ],
       },
     ],
   },

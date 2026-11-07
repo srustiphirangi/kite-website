@@ -4,6 +4,7 @@ import {
   HeartPulse,
   Home,
   IdCard,
+  Plane,
   Send,
   Smartphone,
   Sparkles,
@@ -16,6 +17,7 @@ const map: Record<string, LucideIcon> = {
   HeartPulse,
   Home,
   IdCard,
+  Plane,
   Send,
   Smartphone,
 };
