@@ -27,11 +27,11 @@ export function Header() {
         scrolled ? "shadow-soft" : "border-b border-border"
       }`}
     >
-      <div className="container-page flex h-16 items-center justify-between gap-4 lg:h-20">
+      <div className="container-page flex h-16 items-center justify-between gap-2 sm:gap-4 lg:h-20">
         {/* LOGO + COMPANY NAME */}
         <Link
           to="/"
-          className="flex items-center gap-4"
+          className="flex min-w-0 items-center gap-2 sm:gap-4"
           onClick={() => setOpen(false)}
         >
           <img
@@ -39,13 +39,11 @@ export function Header() {
             alt="Kite International Services logo"
             width={64}
             height={64}
-            className="size-14 rounded-xl object-contain sm:size-16"
+            className="size-12 shrink-0 rounded-xl object-contain sm:size-16"
           />
 
-          <span className="hidden leading-tight sm:block">
-            <span className="block font-display text-xl font-bold text-foreground sm:text-2xl">
-              Kite International
-            </span>
+          <span className="whitespace-nowrap font-display text-[clamp(0.875rem,4.5vw,1.25rem)] font-bold leading-tight text-foreground sm:text-2xl">
+            Kite International
           </span>
         </Link>
 
@@ -110,7 +108,7 @@ export function Header() {
         </nav>
 
         {/* GET STARTED + MOBILE MENU */}
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <Link
             to="/enquiry"
             className="hidden rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-brand-foreground shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift sm:inline-flex"
